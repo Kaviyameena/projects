@@ -1,0 +1,90 @@
+<!-- frequently_donated_donors.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frequently Donated Donors</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image:url("../static/images/hands.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;;
+        }
+        h1 {
+            color:black;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2{
+            color:darkslategray;
+            text-align: center;
+        }
+        .container > h2{
+            color:chocolate;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color:coral;
+            color: #fff;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f7f7f7;
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>THANK YOU FOR DONATING THE NEEDY PEOPLE</h1>
+    <h2><marquee>KEEP DONATING!!!</marquee></h2><br>
+    <div class="container">
+        <h2>FREQUENT DONORS</h2><br><br>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th>RANK</th>
+                        <th>USERNAME</th>
+                        <th>TOTAL DONATION QUANTITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donor in frequently_donated_donors %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ donor.username }}</td>
+                        <td>{{ donor.total_quantity }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
